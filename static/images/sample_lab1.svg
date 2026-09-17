@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 680" width="100%" height="100%">
+  <defs>
+    <filter id="lab-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect x="15" y="15" width="470" height="650" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" filter="url(#lab-shadow)"/>
+  
+  <!-- Header -->
+  <rect x="15" y="15" width="470" height="75" rx="10" fill="#0f766e" />
+  <text x="35" y="45" font-family="'Segoe UI', Arial, sans-serif" font-weight="800" font-size="18" fill="#ffffff">METROPOLIS DIAGNOSTIC LABORATORIES</text>
+  <text x="35" y="65" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#ccfbf1">NABL &amp; CAP Accredited Clinical Pathology Laboratory | Sample ID: #LAB-99201</text>
+
+  <!-- Patient Details -->
+  <rect x="35" y="105" width="430" height="42" rx="4" fill="#f0fdfa" stroke="#99f6e4"/>
+  <text x="45" y="123" font-family="'Segoe UI', sans-serif" font-size="11" fill="#115e59">Patient: <tspan font-weight="700">Sneha Gupta (45 F)</tspan> | Ref Dr: Self / Health Check</text>
+  <text x="45" y="139" font-family="'Segoe UI', sans-serif" font-size="11" fill="#115e59">Collection: 17-Sep-2026 08:30 AM | Fasting Status: 12 Hours Fasting</text>
+
+  <!-- Table Header -->
+  <rect x="35" y="160" width="430" height="28" fill="#e2e8f0"/>
+  <text x="45" y="178" font-family="'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#334155">TEST PARAMETER</text>
+  <text x="210" y="178" font-family="'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#334155">RESULT</text>
+  <text x="300" y="178" font-family="'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#334155">REFERENCE RANGE</text>
+  <text x="420" y="178" font-family="'Segoe UI', sans-serif" font-weight="700" font-size="11" fill="#334155">UNIT</text>
+
+  <!-- Row 1: Fasting Glucose -->
+  <text x="45" y="210" font-family="'Segoe UI', sans-serif" font-size="12" fill="#0f172a">Fasting Blood Glucose</text>
+  <text x="210" y="210" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#0f172a">94</text>
+  <text x="300" y="210" font-family="'Segoe UI', sans-serif" font-size="12" fill="#64748b">70.0 - 99.0</text>
+  <text x="420" y="210" font-family="'Segoe UI', sans-serif" font-size="12" fill="#64748b">mg/dL</text>
+  <line x1="35" y1="225" x2="465" y2="225" stroke="#f1f5f9"/>
+
+  <!-- Row 2: Total Cholesterol (High) -->
+  <rect x="35" y="230" width="430" height="30" fill="#fef2f2"/>
+  <text x="45" y="250" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#b91c1c">Total Cholesterol</text>
+  <text x="210" y="250" font-family="'Segoe UI', sans-serif" font-weight="800" font-size="12" fill="#b91c1c">248 [HIGH]</text>
+  <text x="300" y="250" font-family="'Segoe UI', sans-serif" font-size="12" fill="#b91c1c">&lt; 200.0</text>
+  <text x="420" y="250" font-family="'Segoe UI', sans-serif" font-size="12" fill="#b91c1c">mg/dL</text>
+  <line x1="35" y1="265" x2="465" y2="265" stroke="#f1f5f9"/>
+
+  <!-- Row 3: LDL (High) -->
+  <rect x="35" y="270" width="430" height="30" fill="#fef2f2"/>
+  <text x="45" y="290" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#b91c1c">LDL Cholesterol (Bad)</text>
+  <text x="210" y="290" font-family="'Segoe UI', sans-serif" font-weight="800" font-size="12" fill="#b91c1c">158 [HIGH]</text>
+  <text x="300" y="290" font-family="'Segoe UI', sans-serif" font-size="12" fill="#b91c1c">&lt; 100.0</text>
+  <text x="420" y="290" font-family="'Segoe UI', sans-serif" font-size="12" fill="#b91c1c">mg/dL</text>
+  <line x1="35" y1="305" x2="465" y2="305" stroke="#f1f5f9"/>
+
+  <!-- Row 4: HDL (Good) -->
+  <text x="45" y="325" font-family="'Segoe UI', sans-serif" font-size="12" fill="#0f172a">HDL Cholesterol (Good)</text>
+  <text x="210" y="325" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#0f172a">49</text>
+  <text x="300" y="325" font-family="'Segoe UI', sans-serif" font-size="12" fill="#64748b">&gt; 50.0</text>
+  <text x="420" y="325" font-family="'Segoe UI', sans-serif" font-size="12" fill="#64748b">mg/dL</text>
+  <line x1="35" y1="340" x2="465" y2="340" stroke="#f1f5f9"/>
+
+  <!-- Row 5: Triglycerides -->
+  <text x="45" y="360" font-family="'Segoe UI', sans-serif" font-size="12" fill="#0f172a">Serum Triglycerides</text>
+  <text x="210" y="360" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#0f172a">165 [BORDERLINE]</text>
+  <text x="300" y="360" font-family="'Segoe UI', sans-serif" font-size="12" fill="#64748b">&lt; 150.0</text>
+  <text x="420" y="360" font-family="'Segoe UI', sans-serif" font-size="12" fill="#64748b">mg/dL</text>
+  <line x1="35" y1="375" x2="465" y2="375" stroke="#f1f5f9"/>
+
+  <!-- Row 6: 25-OH Vitamin D (Low) -->
+  <rect x="35" y="380" width="430" height="30" fill="#fffbeb"/>
+  <text x="45" y="400" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#b45309">25-OH Vitamin D Total</text>
+  <text x="210" y="400" font-family="'Segoe UI', sans-serif" font-weight="800" font-size="12" fill="#b45309">14.2 [DEFICIENT]</text>
+  <text x="300" y="400" font-family="'Segoe UI', sans-serif" font-size="12" fill="#b45309">30.0 - 100.0</text>
+  <text x="420" y="400" font-family="'Segoe UI', sans-serif" font-size="12" fill="#b45309">ng/mL</text>
+
+  <!-- Pathologist Recommendation Box -->
+  <rect x="35" y="435" width="430" height="120" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="45" y="455" font-family="'Segoe UI', sans-serif" font-weight="700" font-size="12" fill="#0f172a">Pathologist Clinical Interpretation &amp; Notes:</text>
+  <text x="45" y="475" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569">1. Significant hypercholesterolemia with high atherogenic LDL particles.</text>
+  <text x="45" y="492" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569">2. Moderate to severe Vitamin D deficiency noted; may exacerbate bone weakness.</text>
+  <text x="45" y="510" font-family="'Segoe UI', sans-serif" font-size="11" fill="#0284c7">Recommendation: Physician review for Statin therapy (Atorvastatin 10mg) +</text>
+  <text x="45" y="525" font-family="'Segoe UI', sans-serif" font-size="11" fill="#0284c7">Weekly Cholecalciferol (Vitamin D3 60,000 IU) supplementation for 8 weeks.</text>
+
+  <!-- Bottom Stamp -->
+  <line x1="320" y1="620" x2="445" y2="620" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="382" y="635" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Dr. P. Mehta, MD (Pathology)</text>
+</svg>
