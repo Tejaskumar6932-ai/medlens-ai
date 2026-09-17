@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 680" width="100%" height="100%">
+  <defs>
+    <filter id="paper-shadow2" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="header-grad2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#be123c" />
+      <stop offset="1%" stop-color="#e11d48" />
+    </linearGradient>
+  </defs>
+  <!-- Prescription Paper -->
+  <rect x="15" y="15" width="470" height="650" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="url(#paper-shadow2)"/>
+  
+  <!-- Clinic Header -->
+  <path d="M 15 25 Q 15 15 25 15 L 475 15 Q 485 15 485 25 L 485 95 L 15 95 Z" fill="url(#header-grad2)" />
+  <circle cx="50" cy="55" r="22" fill="#ffffff" opacity="0.95"/>
+  <text x="50" y="62" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="20" fill="#be123c" text-anchor="middle">❤️</text>
+  <text x="85" y="48" font-family="'Segoe UI', Arial, sans-serif" font-weight="700" font-size="16" fill="#ffffff">APEX HEART &amp; METABOLIC CLINIC</text>
+  <text x="85" y="68" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#ffe4e6">Dr. Ananya Roy, MD, DNB (Cardiology) | Reg No: 91402</text>
+  <text x="85" y="82" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#fecdd3">Consultant Interventional Cardiologist | Ph: +91 99870-XXXXX</text>
+
+  <!-- Patient Metadata Bar -->
+  <rect x="35" y="110" width="430" height="40" rx="6" fill="#fff1f2" stroke="#fecdd3"/>
+  <text x="45" y="127" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#9f1239">Patient: <tspan fill="#881337" font-weight="600">Kishan Lal (62 M)</tspan></text>
+  <text x="250" y="127" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#9f1239">BP: <tspan fill="#881337" font-weight="600">142/90 mmHg</tspan></text>
+  <text x="45" y="143" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#9f1239">Diagnosis: <tspan fill="#be123c" font-weight="600">T2DM + HTN + Mild CAD</tspan></text>
+  <text x="360" y="143" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#9f1239">FBS: <tspan fill="#881337" font-weight="600">148 mg/dL</tspan></text>
+
+  <!-- Rx Watermark / Symbol -->
+  <text x="50" y="200" font-family="'Segoe UI', Arial, sans-serif" font-size="34" font-weight="bold" fill="#be123c" opacity="0.8">℞</text>
+  <line x1="45" y1="215" x2="455" y2="215" stroke="#fecdd3" stroke-width="1.5"/>
+
+  <!-- Prescribed Regimen -->
+  <text x="65" y="250" font-family="'Brush Script MT', 'Segoe Script', cursive, sans-serif" font-size="20" fill="#1e293b">1. Tab. Telmisartan 40 mg</text>
+  <text x="90" y="275" font-family="'Segoe UI', sans-serif" font-size="12" fill="#475569">-> 1 - 0 - 0 (Morning after breakfast, for BP)</text>
+
+  <text x="65" y="320" font-family="'Brush Script MT', 'Segoe Script', cursive, sans-serif" font-size="20" fill="#1e293b">2. Tab. Metformin ER 500 mg</text>
+  <text x="90" y="345" font-family="'Segoe UI', sans-serif" font-size="12" fill="#475569">-> 1 - 0 - 1 (With breakfast &amp; dinner)</text>
+
+  <text x="65" y="390" font-family="'Brush Script MT', 'Segoe Script', cursive, sans-serif" font-size="20" fill="#1e293b">3. Tab. Ecosprin (Aspirin) 75 mg</text>
+  <text x="90" y="415" font-family="'Segoe UI', sans-serif" font-size="12" fill="#475569">-> 0 - 1 - 0 (Post lunch with water)</text>
+
+  <!-- Self-medication conflict entry written below -->
+  <rect x="55" y="440" width="390" height="75" rx="6" fill="#fff7ed" stroke="#fdba74" stroke-dasharray="3 3"/>
+  <text x="65" y="465" font-family="'Brush Script MT', 'Segoe Script', cursive, sans-serif" font-size="19" fill="#c2410c">Patient Self-Reported OTC:</text>
+  <text x="65" y="488" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="600" fill="#9a3412">Tab. Ibuprofen 400mg BD for Knee Joint Pain</text>
+  <text x="65" y="504" font-family="'Segoe UI', sans-serif" font-size="11" fill="#ea580c">⚠️ Interaction alert: Combines with Aspirin!</text>
+
+  <!-- Doctor's Note -->
+  <rect x="45" y="535" width="410" height="55" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="55" y="555" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="11" fill="#334155">General Lifestyle Instructions:</text>
+  <text x="55" y="572" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569">• Low sodium, low glycemic index diet. Avoid self-medicating pain pills.</text>
+
+  <!-- Signature Stamp -->
+  <line x1="330" y1="630" x2="445" y2="630" stroke="#94a3b8" stroke-width="1.5"/>
+  <path d="M 345 615 Q 375 585 395 625 T 435 610" fill="none" stroke="#be123c" stroke-width="2" stroke-linecap="round"/>
+  <text x="387" y="643" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Cardiologist Stamp</text>
+</svg>
