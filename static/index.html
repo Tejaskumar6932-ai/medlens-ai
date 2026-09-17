@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedLens — AI Medical Prescription & Lab Report Decoder</title>
+  <meta name="description" content="Turn illegible doctor handwriting and lab panels into clear medicine schedules, drug-conflict warnings, and audio explanations.">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo-area">
+        <div class="logo-icon">🔬</div>
+        <div class="logo-text">
+          <h1>MedLens</h1>
+          <p>AI Clinical Vision &amp; Safety Assistant</p>
+        </div>
+      </div>
+      <div class="header-badges">
+        <div class="badge-live">
+          <span class="pulse-dot"></span>
+          <span>Vision Engine Active</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div class="app-grid">
+      
+      <!-- Left Column: Input & Presets -->
+      <aside class="sidebar-panel">
+        
+        <!-- Upload Box -->
+        <div class="glass" style="padding: 24px;">
+          <div class="panel-header">
+            <h2 class="panel-title">📷 Upload Prescription / Report</h2>
+          </div>
+          
+          <div class="dropzone" id="dropzone">
+            <span class="dropzone-icon">📄</span>
+            <h3>Drop prescription image here</h3>
+            <p>PNG, JPG, WEBP, or scanned PDF photo</p>
+            <p style="margin-top: 8px; font-size: 11px; color: var(--accent-cyan); font-weight: 600;">or click to browse files</p>
+            <input type="file" id="fileInput" accept="image/*">
+          </div>
+
+          <div class="preview-container" id="previewContainer">
+            <div class="scanning-radar" id="radar"></div>
+            <img id="previewImage" src="" alt="Prescription preview">
+          </div>
+        </div>
+
+        <!-- Hackathon Presets (Instant Demo) -->
+        <div class="glass presets-section">
+          <div class="panel-header">
+            <h3 class="panel-title">⚡ Quick Test Presets</h3>
+            <span style="font-size: 11px; color: var(--text-muted);">1-Click Pitch Demos</span>
+          </div>
+          <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">
+            Test immediately with real clinical test cases:
+          </p>
+          
+          <div class="preset-list" id="presetList">
+            <!-- Populated via app.js -->
+            <button class="preset-card active" data-id="sample_antibiotics">
+              <div class="preset-thumb">💊</div>
+              <div class="preset-info">
+                <h4>Doctor Rx: Acute Respiratory Infection</h4>
+                <p>Augmentin 625mg + Pan-D + Dolo 650</p>
+              </div>
+            </button>
+
+            <button class="preset-card" data-id="sample_cardiac_conflict">
+              <div class="preset-thumb" style="border-color: rgba(244, 63, 94, 0.4); color: #f43f5e;">⚠️</div>
+              <div class="preset-info">
+                <h4>Cardiology: High-Risk Conflict Demo</h4>
+                <p>Aspirin + Ibuprofen severe clash alert</p>
+              </div>
+            </button>
+
+            <button class="preset-card" data-id="sample_lab_report">
+              <div class="preset-thumb" style="border-color: rgba(16, 185, 129, 0.4); color: #10b981;">🧪</div>
+              <div class="preset-info">
+                <h4>Diagnostic Lab: Lipid &amp; Vitamin Panel</h4>
+                <p>High LDL Cholesterol + Low Vitamin D3</p>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Optional API Key Config -->
+        <div class="api-bar">
+          <span style="color: var(--text-muted);">Custom OpenAI Key (Opt):</span>
+          <input type="password" id="apiKeyInput" class="api-input" placeholder="sk-proj-...">
+        </div>
+
+      </aside>
+
+      <!-- Right Column: Decoded Intelligence Dashboard -->
+      <section class="results-panel" id="resultsPanel" style="position: relative;">
+        
+        <!-- Loading Spinner Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+          <div class="spinner"></div>
+          <div style="text-align: center;">
+            <h3 style="font-size: 16px; font-weight: 700; color: #fff;">Scanning Handwriting with Vision AI...</h3>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">Transcribing chemical compounds &amp; cross-checking drug interactions</p>
+          </div>
+        </div>
+
+        <!-- Patient & Diagnostic Banner -->
+        <div class="glass patient-banner">
+          <div class="banner-top">
+            <div class="banner-title">
+              <h2 id="rxTitle">General Practice: Acute Respiratory Infection</h2>
+              <div class="banner-meta">
+                <span id="rxDoctor">👨‍⚕️ Dr. S. K. Sharma, MD</span>
+                <span id="rxPatient">👤 Rahul Verma (29 M)</span>
+              </div>
+            </div>
+            <div class="banner-actions">
+              <button class="btn btn-secondary" id="printBtn" title="Print decoded summary">
+                🖨️ Print
+              </button>
+              <button class="btn btn-primary" id="calendarBtn">
+                📅 Add to Calendar (.ics)
+              </button>
+            </div>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.2); padding: 8px 14px; border-radius: var(--radius-sm); font-size: 13px;">
+            <strong style="color: var(--accent-cyan);">Diagnosed Condition:</strong> 
+            <span id="rxDiagnosis" style="color: var(--text-primary); margin-left: 6px;">Acute Bacterial Bronchitis &amp; Pharyngitis</span>
+          </div>
+
+          <!-- Plain-Language Audio Player -->
+          <div class="audio-card">
+            <div class="audio-info">
+              <button class="audio-btn" id="playAudioBtn" title="Play plain-language spoken audio">
+                ▶
+              </button>
+              <div class="audio-text">
+                <h4>Spoken Patient Summary ("Explain Like I'm 5")</h4>
+                <p id="audioSummaryPreview">Loading plain-language explanation...</p>
+              </div>
+            </div>
+            <div>
+              <select id="langSelect" class="lang-select">
+                <option value="en">English Voice</option>
+                <option value="hi">हिंदी (Hindi Voice)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Drug Conflict & Safety Radar -->
+        <div class="glass" style="padding: 20px;">
+          <div class="panel-header">
+            <h3 class="panel-title">🛡️ Clinical Safety &amp; Drug-Drug Interaction Radar</h3>
+            <span id="conflictCountBadge" style="font-size: 11px; font-weight: 700; color: #34d399;">0 Conflicts</span>
+          </div>
+          <div id="conflictsContainer">
+            <!-- Populated via app.js -->
+          </div>
+        </div>
+
+        <!-- Prescribed Medications Cards -->
+        <div class="glass" style="padding: 20px;">
+          <div class="panel-header">
+            <h3 class="panel-title">💊 Decoded Medications &amp; Dosages</h3>
+            <span id="medCountBadge" style="font-size: 11px; color: var(--text-muted);">4 Prescribed</span>
+          </div>
+          <div class="medicine-cards" id="medicinesContainer">
+            <!-- Populated via app.js -->
+          </div>
+        </div>
+
+        <!-- 24-Hour Schedule Timeline -->
+        <div class="glass timeline-section">
+          <div class="panel-header">
+            <h3 class="panel-title">⏰ 24-Hour Patient Daily Routine</h3>
+            <span style="font-size: 11px; color: var(--accent-cyan);">Automated Intake Timing</span>
+          </div>
+          
+          <div class="timeline-grid">
+            
+            <!-- Morning Slot -->
+            <div class="timeline-slot">
+              <div class="slot-header">
+                <span class="slot-icon">🌅</span>
+                <span class="slot-title">Morning (Breakfast)</span>
+              </div>
+              <div class="slot-items" id="morningSlot">
+                <!-- Populated via app.js -->
+              </div>
+            </div>
+
+            <!-- Afternoon Slot -->
+            <div class="timeline-slot">
+              <div class="slot-header">
+                <span class="slot-icon">☀️</span>
+                <span class="slot-title">Afternoon (Lunch)</span>
+              </div>
+              <div class="slot-items" id="afternoonSlot">
+                <!-- Populated via app.js -->
+              </div>
+            </div>
+
+            <!-- Evening / Bedtime Slot -->
+            <div class="timeline-slot">
+              <div class="slot-header">
+                <span class="slot-icon">🌙</span>
+                <span class="slot-title">Night (Dinner &amp; Bedtime)</span>
+              </div>
+              <div class="slot-items" id="eveningSlot">
+                <!-- Populated via app.js -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Built with ❤️ for Hackathons by <strong>Team MedLens</strong> • Powered by Multimodal AI &amp; Clinical Safety Verification</p>
+      <p style="margin-top: 4px; color: #475569; font-size: 11px;">
+        *Disclaimer: MedLens is an assistive tool for educational and hackathon demonstration purposes. Always verify medical advice with a licensed healthcare practitioner.
+      </p>
+    </div>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
